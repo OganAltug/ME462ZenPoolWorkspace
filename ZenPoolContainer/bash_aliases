@@ -1,0 +1,33 @@
+#Atasun Aliases
+# Basic Aliases
+
+# ROS Aliases
+alias sros='source /opt/ros/humble/setup.zsh'
+alias sws='source install/local_setup.zsh'
+alias colcon_fresh='rm -rf build install log && colcon build'
+
+# Ogan Aliases
+# Docker aliases
+alias run_zenpool_container='docker run -it \
+            --user ros \
+            --network=host \
+            --ipc=host \
+            --runtime=nvidia \
+            -v ~/ws_me462:/home/ros/ws_me462 \
+            -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
+            --device-cgroup-rule="c *:* rmw" \
+            --env=DISPLAY \
+            -v /dev:/dev \
+            --env=NVIDIA_VISIBLE_DEVICES=all \
+            --env=NVIDIA_DRIVER_CAPABILITIES=all \
+            --gpus all \
+            zenpool_container'
+
+#Shell shortcuts
+alias cls='clear&&ls'
+alias cla='clear&&ls -lah'
+alias ..='cd ..'
+alias ..2='cd ../..'
+alias ..3='cd ../../..'
+alias ..4='cd ../../../..'
+alias ..5='cd ../../../../..'
