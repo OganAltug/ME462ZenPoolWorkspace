@@ -11,7 +11,7 @@ RUN apt-get update \
     ros-humble-ur \
     ros-humble-moveit \ 
     ros-humble-moveit-visual-tools \ 
-    && rm -rf var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/*
 
 #example copy line
 #COPY example_dir/ /site_config/
