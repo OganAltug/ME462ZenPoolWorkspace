@@ -1,7 +1,8 @@
-FROM osrf/ros:humble-desktop-full
+FROM ros:humble
 
 RUN apt-get update \
     && apt-get install -y \
+    ros-humble-desktop \
     nano \
     tmux \
     tmuxinator \
@@ -11,7 +12,7 @@ RUN apt-get update \
     ros-humble-ur \
     ros-humble-moveit \ 
     ros-humble-moveit-visual-tools \ 
-    && rm -rf var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/*
 
 #example copy line
 #COPY example_dir/ /site_config/
@@ -34,7 +35,7 @@ RUN apt-get update \
 RUN usermod -aG dialout ${USERNAME}
 
 #may be usefull for autocomplete but idk how to set it up exactly
-#RUN echo "source /opt/ros/$ROS_DISTRO/setup.bash" >> /root/.bashrc
+RUN echo "source /opt/ros/${ROS_DISTRO}/setup.bash" >> /home/${USERNAME}/.bashrc
 
 COPY entrypoint.sh /entrypoint.sh
 COPY bashrc /home/${USERNAME}/.bashrc
