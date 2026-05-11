@@ -2,7 +2,7 @@ FROM ros:humble
 
 RUN apt-get update \
     && apt-get install -y \
-    ros-humble-desktop \
+    # ros-humble-desktop \
     nano \
     tmux \
     tmuxinator \
