@@ -281,7 +281,7 @@ void executeTextTracing(moveit::planning_interface::MoveGroupInterface& mgi, con
   Eigen::Vector3d dir_y = T_base_pool.linear() * Eigen::Vector3d(0,1,0);
   Eigen::Vector3d dir_z = dir_x.cross(dir_y).normalized(); 
 
-  Eigen::Vector3d origin_base = T_base_pool * Eigen::Vector3d(-0.4, -0.58, -0.115 + 0.115 + 0.02 - 0.04); 
+  Eigen::Vector3d origin_base = T_base_pool * Eigen::Vector3d(-0.4, -0.58, -0.115 + 0.115 + 0.02 - 0.03); 
   
   auto font = createFont();
   std::vector<std::string> chars = splitUTF8(text);
@@ -289,7 +289,7 @@ void executeTextTracing(moveit::planning_interface::MoveGroupInterface& mgi, con
   double unscaled_width = 0.0;
   for (size_t i = 0; i < chars.size(); ++i) {
     unscaled_width += (font.count(chars[i]) ? font[chars[i]].width : 0.5);
-    if (i < chars.size() - 1) unscaled_width += 0.25; // spacing
+    if (i < chars.size() - 1) unscaled_width += 0.35; // spacing
   }
   double scale = 0.8 / unscaled_width; // 0.8m total width
   double current_x_offset = 0.0;
